@@ -20,6 +20,7 @@ spec:
     - klio-${REGION}
     - klio-${REGION}.default
     - klio-${REGION}.default.svc
+    - klio-${REGION}.default.svc.cluster.local
 
   duration: 2160h # 90d
   renewBefore: 360h # 15d

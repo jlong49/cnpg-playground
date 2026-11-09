@@ -28,7 +28,10 @@ metadata:
   name: klio-pg-${REGION}
 spec:
   clusterName: pg-${REGION}
-  serverAddress: klio-${REGION}.default
+  # The fully qualified name: for a shorter one, gRPC's SRV and TXT lookups
+  # miss the cluster domain, and CoreDNS forwards them upstream, where Docker
+  # Desktop's DNS never answers them, costing 20 s on every connection.
+  serverAddress: klio-${REGION}.default.svc.cluster.local
   tls:
     clientIdentity:
       volume:
